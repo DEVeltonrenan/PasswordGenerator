@@ -1,9 +1,19 @@
 const express = require('express')
+const crypto = require('crypto')
+
+
+
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('ola')
+
+
+
+let senhas = [{usuario: "maycon", site: "netflix", senha: "tinocoepardinho"}, {usuario: "maycon", site: "netflix", senha: "tinocoepardinho"} ]
+    
+
+app.get('/senhas', (req, res) => {
+  res.send(senhas)
 })
 
 app.listen(port, () => {
