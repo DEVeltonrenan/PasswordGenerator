@@ -33,3 +33,8 @@ function generatecode (options) {
     }
 }
 
+for (let index = 0; index < options.length; index++) {
+    const element = array[index];
+    
+}
+
