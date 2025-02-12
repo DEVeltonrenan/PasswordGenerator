@@ -31,10 +31,17 @@ function generatecode (options) {
 
         
     }
-}
 
-for (let index = 0; index < options.length; index++) {
-    const element = array[index];
+    let FrontEndCode = 'upercase,lowcase'
     
-}
+    for (let index = 0; index < options.length; index++) {
+        const randomIndex = crypto.randomInt (0, charaters.length);
+        code += charaters[randomIndex]
+        
+    }   
 
+    return code;
+}   
+
+
+    module.exports = generatecode;
