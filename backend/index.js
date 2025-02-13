@@ -9,7 +9,7 @@ app.use(express.json());
 
 
 
-app.post('/generate', (req, res) =>   {   
+app.post('/generator', (req, res) =>   {   
   try {const {upercase, lowercase, numbers, specialChars, length} = req.body;
   if (!length || length < 1) {  return res.status(400).json({ error: 'O tamanho deve ser maior que zero.'}); 
   }

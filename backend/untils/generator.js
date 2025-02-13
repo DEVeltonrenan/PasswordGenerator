@@ -22,17 +22,17 @@ function generatecode (options) {
     let charaters ='';
 
     if (options.uppercase) charaters += uppercase;
-    if (options.lowercase) charaters += lowercase;;
+    if (options.lowercase) charaters += lowercase;
     if (options.numbers) charaters += numbers;
     if (options.specialChars) charaters += specialChars;
 
-    if (!caracteres){
+    if (!charaters){
         throw new error ('Nnehuma opção de caracteres foi selecionado')
 
         
     }
 
-    let FrontEndCode = 'upercase,lowcase'
+    let code = '';
     
     for (let index = 0; index < options.length; index++) {
         const randomIndex = crypto.randomInt (0, charaters.length);

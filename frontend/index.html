@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1> Test Gerador de Senhas</h1>
+    </header>
+
+
+   
+
+    <div class="container">
+
+        <h2>Gerador de codigos</h2>
+
+        <label for="length">Tamanho da senha</label>
+        <input type="number" id="length" min= "1" value="10">
+
+        <label> <input type="checkbox" id="uppercase">Letra Maiúscula</label>
+        <label> <input type="checkbox" id="lowcase">Letra minúscula</label>
+        <label> <input type="checkbox" id="number">Numeros</label>
+        <label> <input type="checkbox" id="specialChars">Caracteres Especiais</label>
+
+        <button onclick='generatecode()'>Gerar Senha</button>
+
+        <div id="output"></div>
+
+        <script>
+            async function generatecode () {
+
+                const length = document.getElementById('length').value;
+                const uppercase = document.getElementById('uppercase').checked;
+                const lowcase = document.getElementById('lowcase').checked;
+                const number = document.getElementById('number').checked;
+                const specialChars = document.getElementById('specialChars').checked;
+
+
+                const requestBody = { //objeto da requisição da API
+                    length:parseInt(length),//convertendo para inteiro
+                    uppercase: uppercase,
+                    lowcase: lowcase,
+                    number: number,
+                    specialChars: specialChars,
+                }
+                
+                try {
+                const response = await fetch("http://localhost:3000/generator", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(requestBody)
+            });
+
+            const data = await response.json();
+            document.getElementById("output").innerText = data.code;
+
+        } catch (error) {
+            document.getElementById("output").innerText = "Erro ao gerar senha";
+    }
+
+        
+    }
+        </script>
+
+
+
+    </div>
+    
+</body>
+</html>

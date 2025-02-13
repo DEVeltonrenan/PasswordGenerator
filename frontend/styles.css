@@ -1,0 +1,50 @@
+body { 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+    margin-top: 50px; 
+    background-image: linear-gradient(rgb(172, 227, 172),rgb(238, 238, 193));
+    width: 100%;
+    
+   
+}
+
+
+
+
+
+.container { 
+    max-width: 400px; 
+    margin: auto; 
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+}
+
+label { 
+    display: block; 
+    margin-top: 10px; 
+}
+
+input, button { 
+    margin-top: 5px; 
+    padding: 5px; 
+    width: 100%; 
+    
+    
+}
+
+button { 
+    background-color: blue; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+}
+
+button:hover { 
+    background-color: darkblue; 
+}
+
+#output { 
+    margin-top: 20px; 
+    font-weight: bold; 
+}
