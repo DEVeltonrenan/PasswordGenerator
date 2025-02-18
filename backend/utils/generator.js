@@ -1,3 +1,4 @@
+const { error } = require('console');
 const crypto = require('crypto'); // para gerar números aleatórios com segurança
 
 // base de dados
@@ -16,7 +17,7 @@ function generateCode(options) {
     if (options.specialChars) characters += specialChars;
 
     if (!characters) {
-        throw new Error('Nenhuma opção de caracteres foi selecionada');
+        return new error ('Nenhuma opção de caracteres foi selecionada');
     }
 
     let code = '';

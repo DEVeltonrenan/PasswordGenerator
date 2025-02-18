@@ -4,12 +4,10 @@ body {
     margin-top: 50px; 
     background-image: linear-gradient(rgb(172, 227, 172),rgb(238, 238, 193));
     width: 100%;
+    height: 100%;
     
    
 }
-
-
-
 
 
 .container { 
@@ -18,6 +16,8 @@ body {
     padding: 20px; 
     border: 1px solid #ccc; 
     border-radius: 10px; 
+    background-image: radial-gradient(white,rgb(134, 208, 221));
+    box-shadow: 1px 1px 10px 2px #464444;
 }
 
 label { 
@@ -47,4 +47,6 @@ button:hover {
 #output { 
     margin-top: 20px; 
     font-weight: bold; 
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
 }

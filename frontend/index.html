@@ -8,14 +8,14 @@
 </head>
 <body>
     <header>
-        <h1>Gerador de Senhas</h1>
+        <h1>Password Generator</h1>
     </header>
 
     <div class="container">
         <h2>Gerador de códigos</h2>
 
         <label for="length">Tamanho da senha</label>
-        <input type="number" id="length" min="1" value="10">
+        <input type="number" id="length" min="4" max="15" value="4" placeholder="4-15 Caracteres" required>
 
         <label><input type="checkbox" id="uppercase">Letra Maiúscula</label>
         <label><input type="checkbox" id="lowercase">Letra minúscula</label>
@@ -25,6 +25,7 @@
         <button onclick="generateCode()">Gerar Senha</button>
 
         <div id="output"></div>
+        
 
         <script>
             async function generateCode() {
@@ -50,12 +51,24 @@
                     });
 
                     const data = await response.json();
-                    document.getElementById("output").innerText = data.code;
+                    if (response.ok) {
+                        document.getElementById("output").innerText = data.code;
+                    } else {
+                        document.getElementById("output").innerText = data.error;
+                    }
+    
                 } catch (error) {
                     document.getElementById("output").innerText = "Erro ao gerar senha";
                 }
             }
         </script>
     </div>
+
+   <div>
+
+        
+
+
+   </div>
 </body>
 </html>
