@@ -19,24 +19,26 @@ const specialChars = '!@#$%^&*()_+[]{}|;:,.<>?';
 //aqui irá as funções para  gerar a senha aleatoria//
 
 function generatecode (options) {
-    let charaters ='';
+    let characters ='';
 
-    if (options.uppercase) charaters += uppercase;
-    if (options.lowercase) charaters += lowercase;;
-    if (options.numbers) charaters += numbers;
-    if (options.specialChars) charaters += specialChars;
+    if (options.uppercase) characters += uppercase;
+    if (options.lowercase) characters += lowercase;;
+    if (options.numbers) characters += numbers;
+    if (options.specialChars) characters += specialChars;
 
-    if (!caracteres){
+    if (!characters){
         throw new error ('Nenhuma opção de caracteres foi selecionado')
 
         
     }
 
     let FrontEndCode = 'upercase,lowcase'
+    let code = '';  // Inicialização da variável 'code'
+
     
     for (let index = 0; index < options.length; index++) {
-        const randomIndex = crypto.randomInt (0, charaters.length);
-        code += charaters[randomIndex]
+        const randomIndex = crypto.randomInt (0, characters.length);
+        code += characters[randomIndex]
         
     }   
 
