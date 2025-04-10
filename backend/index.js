@@ -1,5 +1,5 @@
 const express = require('express')
-const generatecode = require ('./untils/generator')
+const generatecode = require ('./untils/generatecode')
 
 
 const app = express()
