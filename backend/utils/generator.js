@@ -17,7 +17,7 @@ function generateCode(options) {
     if (options.specialChars) characters += specialChars;
 
     if (!characters) {
-        return new error ('Nenhuma opção de caracteres foi selecionada');
+        throw new error ('Nenhuma opção de caracteres foi selecionada');
     }
 
     let code = '';
