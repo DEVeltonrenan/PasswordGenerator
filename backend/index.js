@@ -12,23 +12,22 @@ app.use(express.json());
 
 app.post('/generate', (req, res) => {
   try {
-    const { uppercase, lowercase, numbers, specialChars, length } = req.body; //pega a informação do corpo da requisição HTML
-    if (characters === none) {
-      return res.status(400).json({ error: 'Ao menos uma caixa deve ser selecionada' });
-    }//verifica se foi selecionado algum tipo de caracteres
+    const { uppercase, lowercase, numbers, specialChars, length } = req.body;
 
-    // NÃO ESTÁ FUNCIONANDO COORETAMENTE, AS MENSSAGENS NÃO ESTÃO SENDO EXIBIDAS!!!
+    // Verifica se ao menos um tipo de caractere foi selecionado
+    if (!uppercase && !lowercase && !numbers && !specialChars) {
+      return res.status(400).json({ error: 'Ao menos uma opção de caracteres deve ser selecionada' });
+    }
 
-    //verificar//
-
-    if (length < 4) {
+    // Verifica se o comprimento mínimo é válido
+    if (!length || length < 4) {
       return res.status(400).json({ error: 'O tamanho mínimo da senha é 4 caracteres' });
     }
 
     const code = generateCode({ uppercase, lowercase, numbers, specialChars, length });
     res.json({ code });
   } catch (error) {
-    res.status(500).json({ error: 'Erro ' });
+    res.status(500).json({ error: error.message });
   }
 });
 
